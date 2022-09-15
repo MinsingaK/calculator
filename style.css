@@ -1,0 +1,155 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h2{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.content_box{
+    border-radius: 15px;
+    background: white;
+    width: 350px;
+    height: 450px;
+    margin: 0 auto;
+    margin-top: 10%;
+    box-shadow: 2px 1px 23px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 2px 1px 23px -2px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px 1px 23px -2px rgba(0,0,0,0.75);
+    }
+
+.content_box .affichage{
+    border-radius: 10px;
+    border: 1px solid gray;
+    margin: 20px 20px 20px;
+    height: 40px;
+}
+
+.content_box .content{
+
+    margin: 22px 20px 0 20px;
+}
+
+.content_box .content .content_header .number{
+    position: relative;
+    border-radius: 10px;
+    margin-top: 4px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: forestgreen;
+}
+
+.content_box .content_header{
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.content_box .content_header .number::after{
+    position: absolute;
+    content:"";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    inset: 3px 3px;
+}
+
+.content_box .content_header .number:hover::after{
+    opacity: .3;
+    background:aqua; 
+}
+
+.content .card{
+    display: flex;
+    width: 100%;
+    height: 70%;
+}
+
+.content .card .content_number{
+    width: 75%;
+}
+
+.content_number .number{
+    position: relative;
+    border-radius: 10px;
+    margin: 12px 10px 0 10px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.content_number .number::after{
+    position: absolute;
+    content:"";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    inset: 3px 3px;
+}
+
+.content_number .number:hover::after{
+    opacity: .3;
+    background:aqua; 
+}
+
+.content_aside{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.content_aside .number{
+    position: relative;
+    border-radius: 10px;
+    margin: 14px 12px 0 10px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 2.5rem;
+    color: forestgreen;
+}
+
+.content_aside .number::after{
+    position: absolute;
+    content:"";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    inset: 3px 3px;
+}
+
+
+.content_aside #egal::after {
+    position: absolute;
+    content:"";
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    inset: 28px 0 0 3px;
+}
+
+.content_aside .number:hover::after{
+    opacity: .3;
+    background:aqua; 
+}
+
+.content_aside #moins,
+.content_aside #plus{
+    width: 50px;
+    height: 50px;
+}
+
+.content_aside #egal{
+    width: 50px;
+    height: 100px;
+    color: white;
+    background: forestgreen;
+}
+
