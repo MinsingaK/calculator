@@ -16,7 +16,7 @@
         $char = "";
         foreach($entreuser as $num){
             if(is_numeric($num) || $num = "."){
-                $char .=$num;
+                $char = $char . $num;
             }elseif(!is_numeric($num)){
                 if(!empty($char)){
                     $tab[] = $char;
