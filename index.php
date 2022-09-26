@@ -11,12 +11,12 @@
         return $a;
     }
 
-    function calcul($entreuser){
+    function calculentree($entreuser){
         $tab = [];
         $char = "";
         foreach($entreuser as $num){
-            if(is_numeric($num) || $num = "."){
-                $char = $char . $num;
+            if(is_numeric($num) || $num == "."){
+                $char .= $num;
             }elseif(!is_numeric($num)){
                 if(!empty($char)){
                     $tab[] = $char;
@@ -37,6 +37,15 @@
                     if($action == "+"){
                         $nombre_courant = $nombre_courant + $tab[$i];
                     }
+                    if($action == "-"){
+                        $nombre_courant = $nombre_courant - $tab[$i];
+                    }
+                    if($action == "x"){
+                        $nombre_courant = $nombre_courant * $tab[$i];
+                    }
+                    if($action == "/"){
+                        $nombre_courant = $nombre_courant / $tab[$i];
+                    }
                     $action = null;
                 }else{
                     if($nombre_courant == 0){
@@ -56,9 +65,20 @@
         }
         if(isset($_POST)){
             foreach($_POST as $key => $value){
-                if($key == 'egal'){
-                    $current_value = calcul($input);
-                }elseif($key != 'input'){
+                if($key == 'equal'){
+                    $current_value = calculentree($input);
+                    $input = [];
+                    $input[] = $current_value;
+                }elseif($key == 'clear'){
+                    $input = [];
+                    $current_value = 0;
+                }elseif($key == 'delete'){
+                    $lastPointer = count($input) - 1;
+                    if(is_numeric($input[$lastPointer]) || !is_numeric($input[$lastPointer])){
+                        array_pop($input);
+                    }
+                }
+                elseif($key != 'input'){
                     $input[] = $value;
                 }  
             }
@@ -88,28 +108,28 @@
             <div class="content">
                 <div class="content_header">
                     <button name="clear" class="number">C</button>
-                    <button name="division" value="/" class="number">&#247;</button>
-                    <button name="mult" class="number" value="x">	&#215;</button>
-                    <button name="delete" class="number" value="dlt">&#8592;</button>
+                    <button type="submit" name="division" value="/" class="number">&#247;</button>
+                    <button type="submit" name="mult" class="number" value="x">	&#215;</button>
+                    <button type="submit" name="delete" class="number" value="dlt">&#8592;</button>
                 </div>
                 <div class="card">
                     <div class="content_number">
-                        <button name="1" class="number" value="1">&#49;</button>
-                        <button name="2" class="number" value="2">&#50;</button>
-                        <button name="3" class="number" value="3">&#51;</button>
-                        <button name="4" class="number" value="4">&#52;</button>
-                        <button name="5" class="number" value="5">&#53;</button>
-                        <button name="6" class="number" value="6">&#54;</button>
-                        <button name="7" class="number" value="7">&#55;</button>
-                        <button name="8" class="number" value="8">&#56;</button>
-                        <button name="9" class="number" value="9">&#57;</button>
-                        <button name="0" class="number" value="0">&#48;</button>
-                        <button name="comma" class="number" value=",">&#44;</button>             
+                        <button type="submit" name="1" class="number" value="1">&#49;</button>
+                        <button type="submit" name="2" class="number" value="2">&#50;</button>
+                        <button type="submit" name="3" class="number" value="3">&#51;</button>
+                        <button type="submit" name="4" class="number" value="4">&#52;</button>
+                        <button type="submit" name="5" class="number" value="5">&#53;</button>
+                        <button type="submit" name="6" class="number" value="6">&#54;</button>
+                        <button type="submit" name="7" class="number" value="7">&#55;</button>
+                        <button type="submit" name="8" class="number" value="8">&#56;</button>
+                        <button type="submit" name="9" class="number" value="9">&#57;</button>
+                        <button type="submit" name="zero" class="number" value="0">&#48;</button>
+                        <button type="submit" name="comma" class="number" value=",">&#44;</button>             
                     </div>
                     <div class="content_aside">
-                        <button name="moins" class="number" id="moins" value="-">&#45;</button>
-                        <button name="plus" class="number" id="plus" value="+">&#43;</button>
-                        <button name="egal" class="number" id="egal" value="=">&#61;</button>
+                        <button type="submit" name="moins" class="number" id="moins" value="-">&#45;</button>
+                        <button type="submit" name="plus" class="number" id="plus" value="+">&#43;</button>
+                        <button type="submit" name="equal" class="number" id="equal" value="=">&#61;</button>
                     </div>
                 </div>
             </div>
